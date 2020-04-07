@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+
+        <script>
+
+        var jogador1 = parseInt(prompt("Primeiro jogador! Digite seu número"));
+
+        var jogador2 = parseInt(prompt("Segundo jogador! Digite seu número:"));
+
+        //sorteia um número randômico de 0 a 1.
+        var sorteio = parseInt(Math.random() *2);
+
+        //grava a regra para exibir
+        if(sorteio == 1){
+            regra = 'Vale o maior número!';
+        }else {
+            regra = 'vale o menor número!';
+        }
+        
+        alert('A regra do jogo é: ' + regra)
+
+        if (jogador1 == jogador2) {
+            alert("Jogo empatado! Ambos apostaram no número: " + jogador1);;
+        } else {
+
+            if((sorteio == 0 && jogador1 < jogador2) || (sorteio == 1 && jogador1 > jogador2)){
+
+                // ganhou o jogador 1
+                alert("Jogador 1 Ganhou!");
+
+            }else {
+                
+                // ganhou o jogador 2
+                alert("Jogador 2 Ganhou!");
+
+            }
+
+        }
+
+        </script>
+
+    </body>
+</html>

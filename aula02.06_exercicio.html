@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+
+        <script>
+
+        var n1 = prompt("Informe um número:");
+        n1 = parseInt(n1);
+
+        var n2 = parseFloat(prompt("Informe o segundo número:"));
+
+        var notacorte = parseFloat(prompt("informe a nota de corte: "));
+
+        var media = (n1 + n2) / 2;
+
+        //alert ("A média é maior que cinco? " + (media > 5));
+
+        /* if(media > notacorte && n1 > 5 && n2 > 5){
+            alert("A muleque, passou de ano! Nota final: " + media  );
+        }else {
+            alert("Xii, não foi dessa vez! Nota final: " + media);
+        } */
+
+        if(media < notacorte || n1 == 0 || n2 ==0) {
+            alert("Xii, não foi dessa vez! Nota final: " + media);
+        }else {
+            alert("A muleque, passou de ano! Nota final: " + media  );
+        }
+
+        </script>
+
+    </body>
+</html>
