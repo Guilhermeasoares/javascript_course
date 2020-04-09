@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+
+        <button onclick="mostrarTabuada()">Mostrar tabuada</button>
+        <button onclick="limparTabuada()">Limpar tabuada</button>
+        
+        
+        <div id="output"></div>
+
+        <script>
+
+            function mostrarTabuada(){
+
+                var tabuadado = parseInt(prompt('Escolha o número da tabuada:'));
+
+                var mensagem = '';
+                for (var i = 0; i <= 100; i++){
+                    mensagem += tabuadado + ' x ' + i + ' = ' + i * tabuadado + '<br>';
+                }
+
+                document.getElementById("output").innerHTML = mensagem;
+            }
+
+            function limparTabuada (){
+                document.getElementById("output").innerHTML = '';
+            }
+
+        </script>
+    </body>
+</html>

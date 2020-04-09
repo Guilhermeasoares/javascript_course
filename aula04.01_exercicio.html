@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+
+        <!-- Informe um número e faça as operações desejadas de soma, subtração, multiplicação e divisão -->
+        
+        <button onclick="informarnumero()">Informar número inicial</button>
+        <button onclick="soma()">Somar</button>
+        <button onclick="subtracao()">Subtrair</button>
+        <button onclick="multiplicacao()">Multiplicar</button>
+        <button onclick="dividir()">Dividir</button>
+        
+        <div id="output"></div>
+
+        <script>
+
+            var numeroInicial = 0;
+
+            //função para mostrar dados na tela
+            function mostrar(){
+                document.getElementById('output').innerHTML = numeroInicial;
+            }
+
+
+            // solicitar input de número inteiro
+            function informarnumero(){
+                numeroInicial = parseInt(prompt('Informe o número inicial'));
+                mostrar();
+            }
+
+            // Criar função de soma
+            function soma(){
+                var somarCom = parseInt(prompt('Informe o número a ser somado: '));
+                numeroInicial = numeroInicial + somarCom;
+                mostrar();
+            }
+
+            // Criar função de subtração
+            function subtracao(){
+                var subtrairDe = parseInt(prompt('Informe o número a ser subtraído'));
+                numeroInicial = numeroInicial - subtrairDe;
+                mostrar();
+            }
+
+            // Criar função de multiplicação
+            function multiplicacao(){
+                var multiplicarCom = parseInt(prompt('Informe o número multiplicador'));
+                numeroInicial = numeroInicial * multiplicarCom;
+                mostrar();
+            }
+
+            // Criar função de divisão
+            function dividir(){
+                var dividirPor = parseInt(prompt('Informe o número divisor'));
+                numeroInicial = numeroInicial / dividirPor;
+                mostrar();
+            }
+
+        </script>
+
+    </body>
+</html>
