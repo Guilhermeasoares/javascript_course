@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+
+        <!-- Informe um número e faça as operações desejadas de soma, subtração, multiplicação e divisão -->
+        
+        <button onclick="informarnumero()">Informar número inicial</button>
+        <button onclick="functionreturn()">Utiliza Function Return</button>
+        <button onclick="calcular('+')">Somar</button>
+        <button onclick="calcular('-')">Subtrair</button>
+        <button onclick="calcular('*')">Multiplicar</button>
+        <button onclick="calcular('/')">Dividir</button>
+        
+        <div id="output"></div>
+
+        <script>
+
+            var numeroInicial = 0;
+
+            //função para mostrar dados na tela
+            function mostrar(){
+                document.getElementById('output').innerHTML = numeroInicial;
+            }
+
+            // solicitar input de número inteiro
+            function informarnumero(){
+                numeroInicial = parseInt(prompt('Informe o número inicial'));
+                mostrar();
+            }
+
+            // Criar função de calcular
+            function calcular(operator){
+
+                switch (operator) {
+                    case '+':
+                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
+                        numeroInicial = numeroInicial + calcularCom;
+                        mostrar();
+                        break;
+                    case '-':
+                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
+                        numeroInicial = numeroInicial - calcularCom;
+                        mostrar();
+                        break;
+                    case '*':
+                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
+                        numeroInicial = numeroInicial * calcularCom;
+                        mostrar();
+                        break;
+                    case '/':
+                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
+                        numeroInicial = numeroInicial / calcularCom;
+                        mostrar();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            function functionreturn (){
+                var n1 = parseInt(prompt('Informe um número!'));
+                var n2 = parseInt(prompt('Informe um outro número!'));
+                numeroInicial = calculo_surpresa (n1,n2);
+                mostrar();
+            }
+
+            function calculo_surpresa (a,b){
+
+                if(a>b){
+                    return a+b;
+                }else{
+                    return a-b;
+                }
+
+            }
+
+        </script>
+
+    </body>
+</html>
