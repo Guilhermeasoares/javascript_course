@@ -10,73 +10,62 @@
         <!-- Informe um número e faça as operações desejadas de soma, subtração, multiplicação e divisão -->
         
         <button onclick="informarnumero()">Informar número inicial</button>
-        <button onclick="functionreturn()">Utiliza Function Return</button>
-        <button onclick="calcular('+')">Somar</button>
-        <button onclick="calcular('-')">Subtrair</button>
-        <button onclick="calcular('*')">Multiplicar</button>
-        <button onclick="calcular('/')">Dividir</button>
+        <button onclick="organizarDados('+')">Somar</button>
+        <button onclick="organizarDados('-')">Subtrair</button>
+        <button onclick="organizarDados('*')">Multiplicar</button>
+        <button onclick="organizarDados('/')">Dividir</button>
         
         <div id="output"></div>
 
         <script>
 
-            var numeroInicial = 0;
+
+            var numeroInicial = parseInt(prompt('Informe o número Inicial!'));
+            mostrar(numeroInicial);
 
             //função para mostrar dados na tela
-            function mostrar(){
-                document.getElementById('output').innerHTML = numeroInicial;
+            function mostrar(exibir){
+                document.getElementById('output').innerHTML = exibir;
             }
 
             // solicitar input de número inteiro
             function informarnumero(){
                 numeroInicial = parseInt(prompt('Informe o número inicial'));
-                mostrar();
+                mostrar(numeroInicial);
             }
 
-            // Criar função de calcular
-            function calcular(operator){
+            // organizar dados para enviar para a função calcular
+            function organizarDados (simbolo) {
+                var n1 = parseInt(document.getElementById('output').textContent);
+                var n2 = parseInt(prompt('Digite outro núnero!'));
+                var msg = calcular(simbolo, n1, n2);
+                mostrar(msg);  
+            }
 
-                switch (operator) {
+
+            // Criar função de calcular
+            function calcular(simbolo, n1, n2){
+
+                var resultadoCalculado = null
+
+                switch (simbolo) {
                     case '+':
-                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
-                        numeroInicial = numeroInicial + calcularCom;
-                        mostrar();
+                        resultadoCalculado = n1 + n2;
                         break;
                     case '-':
-                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
-                        numeroInicial = numeroInicial - calcularCom;
-                        mostrar();
+                        resultadoCalculado = n1 - n2;
                         break;
                     case '*':
-                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
-                        numeroInicial = numeroInicial * calcularCom;
-                        mostrar();
+                        resultadoCalculado = n1 * n2;
                         break;
                     case '/':
-                        var calcularCom = parseInt(prompt('Informe o número a ser calculado: '));
-                        numeroInicial = numeroInicial / calcularCom;
-                        mostrar();
+                        resultadoCalculado = n1 / n2;
                         break;
                     default:
                         break;
                 }
 
-            }
-
-            function functionreturn (){
-                var n1 = parseInt(prompt('Informe um número!'));
-                var n2 = parseInt(prompt('Informe um outro número!'));
-                numeroInicial = calculo_surpresa (n1,n2);
-                mostrar();
-            }
-
-            function calculo_surpresa (a,b){
-
-                if(a>b){
-                    return a+b;
-                }else{
-                    return a-b;
-                }
+                return resultadoCalculado;
 
             }
 
