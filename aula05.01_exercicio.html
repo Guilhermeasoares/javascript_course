@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+
+        <button onclick="pedirValores()">Informe novamente os números!</button>
+        <p></p>
+        <div id="output"></div>
+
+        <script>
+
+            pedirValores();
+
+            function pedirValores(){
+
+                var n1 = parseFloat(prompt('Informe o tamanho de um dos lados do retângulo!'));
+                var n2 = parseFloat(prompt('Informe o outro lado do retâmgulo'));
+
+                if ( isNaN(n1) || isNaN(n2 )){
+                    alert('Informe um número válido!');
+                    pedirValores();
+                }
+
+                var areaCalculada = calculo (n1,n2);
+                mostrar(areaCalculada);
+
+            }
+
+            function calculo(n1,n2){
+                return n1 * n2;
+            }
+            
+            function mostrar(exibir){
+                document.getElementById('output').innerHTML = exibir;
+            }
+
+
+        </script>
+        
+
+
+
+    </body>
+</html>
