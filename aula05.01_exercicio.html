@@ -13,24 +13,41 @@
 
         <script>
 
+
             pedirValores();
 
             function pedirValores(){
 
                 var n1 = parseFloat(prompt('Informe o tamanho de um dos lados do retângulo!'));
-                var n2 = parseFloat(prompt('Informe o outro lado do retâmgulo'));
+                var n2 = parseFloat(prompt('Informe o outro lado do retângulo'));
 
-                if ( isNaN(n1) || isNaN(n2 )){
-                    alert('Informe um número válido!');
-                    pedirValores();
+                function askAgain(){
+                    n1 = parseFloat(prompt('Informe o tamanho de um dos lados do retângulo!'));
+                    n2 = parseFloat(prompt('Informe o outro lado do retângulo'));
+                }    
+                
+                try {
+                    var areaCalculada = calculo (n1,n2);
+                }catch (e){                  
+                    alert(e)
+                    askAgain();
                 }
 
-                var areaCalculada = calculo (n1,n2);
-                mostrar(areaCalculada);
+                mostrar( areaCalculada );
 
             }
 
             function calculo(n1,n2){
+                
+                if( n1 === undefined || n2 === undefined){
+                    throw new Error ('Todos os números devem ser informados');
+
+                }
+
+                if ( isNaN(n1) || isNaN(n2)){
+                    throw new Error ('Informe apenas números');
+                }
+                
                 return n1 * n2;
             }
             

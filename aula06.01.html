@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+
+        <button onclick="novoNome()">Insira um novo nome</button>
+        <button onclick="gerarLista()">Gerar lista!</button>
+        <p></p>
+        <div id="output"></div>
+
+    </body>
+
+    <script>
+
+        var names = new Array('Jose','Maria','Yasmin','Thomas');
+
+        function novoNome(){
+            names.push(prompt('Informe o novo nome!'));
+        }
+
+        function mostrar(){
+            var output = document.getElementById('output').innerHTML = msg;
+        }
+
+        var msg = '';
+
+        function gerarLista(){
+
+            msg = '';      
+
+            for ( var i = 0; i < names.length; i++){
+                msg += 'Cod. ' + i + " : " + names[i] + '<br>';
+            }
+
+            mostrar(msg);
+
+        }
+
+    </script>
+
+</html>
