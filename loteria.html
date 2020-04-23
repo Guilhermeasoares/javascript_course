@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+        <style>
+
+            body{
+                font-family: sans-serif;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Loteria</h1>
+        <div id='output'></div>
+
+        <script>
+
+            function sortear(){
+                return Math.floor( Math.random() * 60 );
+            }
+
+            var sorteados = [];
+            var repetidos = '';
+            var maxNumbers = 6;
+            var numeroSorteado = null;
+            var i = 0;
+
+            while ( i < maxNumbers  ){
+
+                numeroSorteado = sortear();
+
+                if( sorteados.includes(numeroSorteado) === false ){
+                    sorteados[i] = numeroSorteado;
+                    i++
+                } else{
+                    repetidos += numeroSorteado + ',';
+                    i--
+                }
+
+            }
+
+            console.log(sorteados);
+            document.getElementById("output").innerHTML = sorteados;
+
+
+        </script>
+
+
+    </body>
+</html>

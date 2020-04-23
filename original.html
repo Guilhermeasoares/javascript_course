@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculadora</title>
+
+	<style>
+
+	body{
+		font-family: sans-serif;
+	}
+
+	#calculator{
+		width: 200px;
+        background-image: linear-gradient(#b7b7b7, #9c9c9c);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,.8);
+        margin: 15px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 5px;
+        grid-template-rows: auto repeat(5, 40px);
+	}
+		
+
+	button{
+		padding: .25em;
+	}
+
+	#display{
+		padding: 10px;
+        font-size: 1.4em;
+        text-align: right;
+        background-image: linear-gradient(#c5c5c5, #e0e0e0);
+        box-shadow: inset 3px 2px 0 white;
+        margin-bottom: 15px;     
+        grid-column: 1 / -1;
+	}
+
+	.mais{
+		background-color: #adadad;
+        grid-row: 5 / 7;
+        grid-column: 4 / 5;
+        
+	}
+
+	.zero{
+		background-color: #adadad;
+        grid-column: 1 / 3;
+	}
+
+	</style>
+
+</head>
+	<body>
+
+	<div id="calculator">
+		<div id="display">0</div>
+		
+		<button onclick="limpar()">AC</button> 
+		<button onclick="iniciarCalculo('%')">%</button> 
+		<button onclick="iniciarCalculo('*')">x</button> 
+		<button onclick="iniciarCalculo('/')">/</button> 
+		<button onclick="incluirDigito('7')">7</button> 
+		<button onclick="incluirDigito('8')">8</button> 
+		<button onclick="incluirDigito('9')">9</button> 
+		<button onclick="finalizarCalculo('=')">=</button>
+		<button onclick="incluirDigito('4')">4</button> 
+		<button onclick="incluirDigito('5')">5</button> 
+		<button onclick="incluirDigito('6')">6</button>  
+		<button onclick="iniciarCalculo('-')">-</button> 
+		<button onclick="incluirDigito('1')">1</button> 
+		<button onclick="incluirDigito('2')">2</button> 
+		<button onclick="incluirDigito('3')">3</button> 
+		<button onclick="iniciarCalculo('+')" class="mais">+</button>
+        <button class="zero" onclick="incluirDigito('0')">0</button> 
+        <button onclick="incluirVirgula()">,</button> 
+		
+	</div>
+
+<!--	<img src="https://static.webshopapp.com/shops/038765/files/063260238/geeek-bamboo-wooden-calculator-calculator.jpg" style="width: 250px">-->
+
+	</body>
+
+	<script>
+
+		var n1 = '';
+		var operacao = null;
+		var n2 = '';
+		var countComman1 = 0;
+		var countComman2 = 0;
+
+
+		//função mostrar
+		function mostrar(exibir){
+			document.getElementById('display').innerHTML = exibir;
+		}
+
+		//função incluir digito
+		function incluirDigito(number){
+
+			if ( operacao === null ) {
+				n1 += number;
+				mostrar(n1);
+			}else {
+				n2 += number;
+				mostrar(n2);
+			}
+
+		}
+	
+		function iniciarCalculo(simbolo){
+			
+			if( operacao === null || n2 === '' ){
+				operacao = simbolo;
+				console.log(simbolo);
+			}else {
+				finalizarCalculo();
+				operacao = simbolo;
+				console.log(simbolo);
+			}	
+		
+		}
+		
+		function finalizarCalculo(state){
+
+			if ( n1 !== '' && n2 !== '' ) {
+
+				var calculoFinal = 0;
+				numero1 = parseFloat(n1);
+				numero2 = parseFloat(n2);
+
+				switch (operacao) {
+
+					case '+':
+						calculoFinal = numero1 + numero2;
+						break;
+					case '-':
+						calculoFinal = numero1 - numero2;
+						break;
+					case '/':
+						calculoFinal = numero1 / numero2;
+						break;
+					case '*':
+						calculoFinal = numero1 * numero2;
+						break;
+					case '%':
+						calculoFinal = (numero1 / numero2) * 100;
+						//calculoFinal += '%';
+						break;
+					default:
+						break;
+				}
+
+				if ( state = '='){
+					n2 = '';
+				}
+
+				n1 = calculoFinal;
+				operacao = null;
+				mostrar(calculoFinal);
+				//n2 = '';
+				console.log(n1,operacao,n2,calculoFinal);
+
+			}
+
+		}
+
+
+		//zerar calculadora
+		function limpar(){
+			n1 = '';
+			operacao = null;
+			n2 = '';
+			countComman1 = 0;
+			countComman2 = 0;
+			mostrar(0);
+		}
+
+		//inclur vírgula
+		function incluirVirgula(){
+
+			if(n2){
+
+				if ( n2 === '' && countComman2 < 1 ){
+					n2 = '0';
+					//n2 += '.';
+					countComman2++;
+				} else if( countComman2 < 1 ) {
+					n2 += '.';
+					countComman2++;
+				}
+
+			} else {
+
+				if ( n1 === '' && countComman1 < 1 ){
+					n1 = '0.';
+					//n1 += '.';
+					countComman1++;
+				} else if( countComman1 < 1 ) {
+					n1 += '.';
+					countComman1++;
+				}
+
+			}
+		}
+
+
+	</script>
+
+
+</html>

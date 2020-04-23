@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+        <div id="output"></div>
+    </body>
+
+    <script>
+
+        var caneta = new Object();
+        caneta.nome = 'Bic'
+        caneta.preco = 1.5
+        caneta.estoque = 2
+
+        var msg = "<b>Nome do produto:</b> " + caneta.nome + "<br>";
+        msg += "Preço do produto: " + caneta.preco + "<br>";
+        msg += "Em estoque: " + caneta.estoque + "<br>";
+
+        caneta.calculo = function(alteraEstoque){
+            this.estoque += alteraEstoque;
+            console.log(this.estoque);
+        }
+
+        document.getElementById('output').innerHTML = msg;
+
+        
+    </script>
+
+
+</html>
