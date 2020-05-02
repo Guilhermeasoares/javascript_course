@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <h1>Jogo do par ou impar</h1>
+        <p>Digite um número de 0 a 5
+        <input type="number" id="meuNumero" min="0" max="5"></p>
+        <label><input type="radio" id="par" name="opcao" value="par" checked>Par</label></br>
+        <label><input type="radio" id="impar" name="opcao" value="impar">Impar</label></br>
+        </br>
+        <button onclick="jogar()">Jogar</button>
+        <div id="output" style="padding-top: 10px;"></div>
+
+        <script>
+
+            //numero do computador
+            var nComputador;
+            //numero do jogador
+            var nJogador = 0;
+            //se escolheu par ou impar
+            var minhaEscolha = 'par';
+            var resultado;
+
+        
+            function sortear(max){
+                return Math.floor(Math.random() * max);
+            }
+
+            function jogar(){
+
+                if ( document.getElementById('par').checked ){
+                minhaEscolha = 'par';
+                }else{
+                minhaEscolha = 'impar';
+                }
+
+                nJogador = parseFloat(document.getElementById("meuNumero").value);
+                nComputador = parseFloat(sortear(5));
+                resultado = ( ( nJogador + nComputador ) % 2 === 0 ) ? 'par' : 'impar';
+
+                if ( resultado === minhaEscolha ){
+                    mostrar("Você Ganhou! " + ( nJogador + nComputador) + " é " + resultado )
+                }else {
+                    mostrar("Você perdeu! " + ( nJogador + nComputador) + " é " + resultado )
+                }
+
+            }
+
+
+
+            function mostrar(check){
+                document.getElementById('output').innerHTML = check;
+            }
+
+
+        </script>
+
+
+    </body>
+</html>

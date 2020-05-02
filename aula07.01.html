@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lógica de programação Javascript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Lógica de programação com Javascript</h1>
+        <div id="output"></div>
+
+        <script>
+
+            //mostrar média por bimestre e anual, dos 
+
+            var media1 = 0;
+            var media2 = 0;
+            var media3 = 0;
+            var media4 = 0;
+            var mediaAno = 0;
+
+            //matriz
+            var notas = [
+                [5,6,4,3], [2,8,5,6], [3,6,4,8], [2,8,4,9]
+            ]
+
+
+            // 0,0 0,1 0,2 0,3 ; 1,0 1,1 1,2 1,3
+            for ( var i = 0; i < notas[0].length; i++ ){
+
+                media1 += notas[0][i];
+                media2 += notas[1][i];
+                media3 += notas[2][i];
+                media4 += notas[3][i];
+
+            }
+
+            media1 = media1 / 4;
+            media2 = media2 / 4;
+            media3 = media3 / 4;
+            media4 = media4 / 4;
+            mediaAno = (media1 + media2 + media3 + media4) / 4; 
+
+            console.log(media1);
+            console.log(media2);
+            console.log(media3);
+            console.log(media4);
+            console.log(mediaAno);
+
+
+
+            
+
+
+        </script>
+
+    </body>
+</html>
