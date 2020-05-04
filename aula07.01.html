@@ -17,6 +17,8 @@
             var media3 = 0;
             var media4 = 0;
             var mediaAno = 0;
+            var exibirNotas = '';
+            
 
             //matriz
             var notas = [
@@ -25,31 +27,30 @@
 
 
             // 0,0 0,1 0,2 0,3 ; 1,0 1,1 1,2 1,3
-            for ( var i = 0; i < notas[0].length; i++ ){
+            for ( i = 0; i < notas.length; i++ ){
 
-                media1 += notas[0][i];
-                media2 += notas[1][i];
-                media3 += notas[2][i];
-                media4 += notas[3][i];
+                let totalBimestre = 0;
+
+                for ( j = 0; j < notas[i].length; j++ ){
+
+                    totalBimestre += notas[i][j];
+                    console.log ( notas[i][j] );
+                }
+
+                let mediaBimestre = totalBimestre / notas[i].length; 
+                exibirNotas += (i + 1)+ 'º' + ' Bimestre: ' + mediaBimestre + '</br>';
+                //mostrar(exibirNotas);
+                mediaAno += mediaBimestre
+                console.log(mediaBimestre);
 
             }
 
-            media1 = media1 / 4;
-            media2 = media2 / 4;
-            media3 = media3 / 4;
-            media4 = media4 / 4;
-            mediaAno = (media1 + media2 + media3 + media4) / 4; 
-
-            console.log(media1);
-            console.log(media2);
-            console.log(media3);
-            console.log(media4);
-            console.log(mediaAno);
-
-
-
-            
-
+            exibirNotas += "Sua média anual foi de: " + ( mediaAno / notas.length );
+            mostrar (exibirNotas);
+        
+            function mostrar (exibir){
+                document.getElementById('output').innerHTML = exibir
+            }
 
         </script>
 
